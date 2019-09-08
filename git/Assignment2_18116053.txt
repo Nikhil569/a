@@ -1,0 +1,32 @@
+mov r0,0
+mov r1,1
+mov r2,0
+mov r3,0
+
+.for1 :
+	mul r4,r1,r1
+	mul r5,r4,r1
+	mov r2,0
+	cmp r3,2
+	beq ret
+	add r1,r1,1
+	mov r3,0
+
+.for2 : 
+	add r0,r2,1
+	cmp r2,r1
+	beq .for1
+	add r2,r2,1
+
+.for3 :
+	mul r4,r0,r0
+	mul r6,r4,r0
+	mul r7,r2,r2
+ 	mul r8,r7,r2
+	add r9,r6,r8
+	cmp r5,r9
+	add r3,r3,flag.E
+	add r0,r0,1
+	cmp r0,r1
+	beq .for2
+	beq .for3
